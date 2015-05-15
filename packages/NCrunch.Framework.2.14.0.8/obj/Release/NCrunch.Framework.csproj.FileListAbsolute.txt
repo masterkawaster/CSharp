@@ -1,0 +1,4 @@
+C:\Projects\home\nCrunch\Product\ClientBinaries\Release\NCrunch.Framework.dll
+C:\Projects\home\nCrunch\Product\ClientBinaries\Release\NCrunch.Framework.pdb
+C:\Projects\home\nCrunch\Product\NCrunch.Framework\obj\RELEASE\NCrunch.Framework.dll
+C:\Projects\home\nCrunch\Product\NCrunch.Framework\obj\RELEASE\NCrunch.Framework.pdb

@@ -1,0 +1,5 @@
+C:\Projects\home\nCrunch\Product\ClientBinaries\Debug\NCrunch.Framework.dll
+C:\Projects\home\nCrunch\Product\ClientBinaries\Debug\NCrunch.Framework.pdb
+C:\Projects\home\nCrunch\Product\NCrunch.Framework\obj\Debug\NCrunch.Framework.dll
+C:\Projects\home\nCrunch\Product\NCrunch.Framework\obj\Debug\NCrunch.Framework.pdb
+C:\Projects\home\nCrunch\Product\NCrunch.Framework\obj\Debug\NCrunch.Framework.csprojResolveAssemblyReference.cache
