@@ -48,12 +48,24 @@ namespace IEnumerableExample
 
         public IEnumerator<string> GetEnumerator()
         {
-            yield return (string)GetEnumerator().Current;
+            yield return players[0];
+            yield return players[2];
+            yield return players[4];
+            yield return players[6];
+            yield return players[8];
+            yield return players[10];
+
+            yield return players[1];
+            yield return players[3];
+            yield return players[5];
+            yield return players[7];
+            yield return players[9];
+            yield return players[11];
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return players.GetEnumerator();
+            return this.GetEnumerator();
         }
 
         public void AddPlayer(string playerName, int position)

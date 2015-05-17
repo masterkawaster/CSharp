@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace IEnumerableExample
@@ -29,7 +30,7 @@ namespace IEnumerableExample
     public class IEnumerableTests
     {
         [Test]
-        public void test()
+        public void givenTeam_whenForeach_IterateThroughPlayers()
         {
             var team = new Team();
 
@@ -46,16 +47,33 @@ namespace IEnumerableExample
             }
 
             Assert.That(enumerableCheck, Is.EqualTo("p0p1p2p3p4p5p6p7p8p9p10p11"));
+        }
 
-            enumerableCheck = string.Empty;
+        [Test]
+        public void givenBetterTeam_whenForeach_thenEnumerateByFirstlyEvenThenOdd()
+        {
+            var enumerableCheck = string.Empty;
 
             var betterTeam = new BetterTeam();
+
+            for (int i = 0; i < 12; i++)
+            {
+                betterTeam.AddPlayer(string.Format("p{0}", i), i);
+            }
+
             foreach (var player in betterTeam)
             {
                 enumerableCheck += player;
             }
 
-            enumerableCheck = string.Empty;
+            Assert.That(enumerableCheck, Is.EqualTo("p0p2p4p6p8p10p1p3p5p7p9p11"));
+
+        }
+
+        [Test]
+        public void givenMuchBetterTeam_whenForeach_thenEnumerateInReverseOrder()
+        {
+            var enumerableCheck = string.Empty;
 
             var muchBetterTeam = new MuchBetterTeam();
 
