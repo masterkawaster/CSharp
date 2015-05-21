@@ -73,7 +73,27 @@ namespace CSharpAdvanced.Delegates
             {
                 return player.Length == 7;
             };
+        }
 
+        [Test]
+        public void givenMethod_whenExecutingBuiltWrapper_thenAddLogging()
+        {
+            string logs = string.Empty;
+
+            Action testMethodWithLogging = () =>
+            {
+                logs += "Before executing testMethod";
+                testMethod();
+                logs += "After executing testMethod";
+            };
+
+            testMethodWithLogging();
+
+            Assert.That(logs, Is.EqualTo("Before executing testMethodAfter executing testMethod"));
+        }
+
+        private void testMethod()
+        {
 
         }
     }
