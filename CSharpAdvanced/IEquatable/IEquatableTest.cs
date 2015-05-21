@@ -64,7 +64,7 @@ namespace CSharpAdvanced.IEquatable
 
         //NOT EQUAL - REFERENCE TYPES
         [Test]
-        public void givenSameReferenceTypes_whenEqualityComparer_thenValueTypesAreNotEqual()
+        public void givenSameReferenceTypes_whenEqualityComparer_thenValueTypesARenaulttEqual()
         {
             int value1 = 2;
             int value2 = 2;

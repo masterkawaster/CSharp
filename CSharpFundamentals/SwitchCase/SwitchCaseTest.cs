@@ -51,7 +51,7 @@ namespace CSharpFundamentals.SwitchCase
             {
                 case "Opel": number = 1; break;
                 case "Ford": number = 2; break;
-                case "Reno": number = 3; break;
+                case "Renault": number = 3; break;
             }
             Assert.That(number, Is.EqualTo(1));
         }

@@ -45,9 +45,9 @@ namespace CSharpAdvanced.LinqLambda
             var list = new List<string> { "Ford", "Opel" };
             var query = from c in list select c;
 
-            list.Add("Reno");
+            list.Add("Renault");
 
-            Assert.That(query.Last() == "Reno");
+            Assert.That(query.Last() == "Renault");
         }
 
         [Test]
@@ -59,9 +59,9 @@ namespace CSharpAdvanced.LinqLambda
             var variable = query.Last();
             Assert.That(variable == "Opel");
 
-            list.Add("Reno");
+            list.Add("Renault");
 
-            Assert.That(query.Last() == "Reno");
+            Assert.That(query.Last() == "Renault");
             Assert.That(variable == "Opel");
         }
 
