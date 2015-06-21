@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.Operators
@@ -29,9 +30,31 @@ namespace CSharpFundamentals.Operators
     public class OperatorsExample
     {
         [Test]
+        public void CheckNullable()
+        {
+            int? nullable = null;
+            int? nullableWithValue = 4;
+
+            int check1 = nullable ?? 0;
+            Assert.That(check1 == 0);
+
+            int check2 = nullableWithValue ?? 0;
+            Assert.That(check2 == 4);
+        }
+
+        [Test]
+        public void CheckValue()
+        {
+            int value = 0;
+            int assignment = value == 0 ? 15 : 25;
+
+            Assert.That(assignment == 15);
+        }
+
+        [Test]
         public void moduloTest()
         {
-            Assert.That(23 % 5, Is.EqualTo(3));
+            Assert.That(23%5, Is.EqualTo(3));
         }
 
         [Test]
@@ -46,31 +69,9 @@ namespace CSharpFundamentals.Operators
         {
             int a = 4;
             int b = 5;
-            b += a;//b = b + a
+            b += a; //b = b + a
 
             Assert.That(b == 9);
-        }
-
-        [Test]
-        public void CheckNullable()
-        {
-            int? nullable = null;
-            int? nullableWithValue = 4;
-
-            var check1 = nullable ?? 0;
-            Assert.That(check1 == 0);
-
-            var check2 = nullableWithValue ?? 0;
-            Assert.That(check2 == 4);
-        }
-
-        [Test]
-        public void CheckValue()
-        {
-            int value = 0;
-            int assignment = value == 0 ? 15 : 25;
-
-            Assert.That(assignment == 15);
         }
     }
 }

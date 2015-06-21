@@ -21,22 +21,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Using
 {
     public class DisposeExample
     {
-        private int objectState = 0;
-        public int ObjectState { get { return objectState; } set { objectState = value; } }
+        public DisposeExample()
+        {
+            ObjectState = 0;
+        }
+
+        public int ObjectState { get; set; }
 
         internal int whenThrowingInTry_thenCodeAfterFinallyIsReachable()
         {
-            var number = 0;
+            int number = 0;
             try
             {
                 number = 1;
@@ -56,7 +57,7 @@ namespace Using
 
         internal object whenReturningInCatch_thenCodeAfterFinallyIsUnreachable()
         {
-            var number = 0;
+            int number = 0;
             try
             {
                 number = 1;
@@ -77,7 +78,7 @@ namespace Using
 
         internal object whenThrowInCatch_thenCodeAfterFinallyIsUnreachable()
         {
-            var number = 0;
+            int number = 0;
             try
             {
                 number = 1;

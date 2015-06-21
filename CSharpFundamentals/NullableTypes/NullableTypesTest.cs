@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.NullableTypes
@@ -38,7 +39,7 @@ namespace CSharpFundamentals.NullableTypes
             int notNullable = 5;
 
             nullable = notNullable;
-            notNullable = (int)nullable; //Exception if nullable = null
+            notNullable = (int) nullable; //Exception if nullable = null
             notNullable = nullable.Value;
         }
     }

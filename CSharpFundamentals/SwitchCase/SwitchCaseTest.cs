@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.SwitchCase
@@ -28,37 +29,49 @@ namespace CSharpFundamentals.SwitchCase
     [TestFixture]
     public class SwitchCaseTest
     {
-        [Test]
-        public void SwitchCaseWithoutBreakTest()
+        public class Auto
         {
-            int number = 0;
-            var switchArg = "arg";
-            switch (switchArg)
-            {
-                case "first": number = 1; break;
-                case "arg": number = 2; break;
-                case "third": number = 3; break;
-            }
-            Assert.That(number, Is.EqualTo(2));
+            public string Name { get; set; }
         }
 
         [Test]
         public void SwitchCaseWithObjects()
         {
             int number = 0;
-            var auto = new Auto() { Name = "Opel" };
+            var auto = new Auto {Name = "Opel"};
             switch (auto.Name)
             {
-                case "Opel": number = 1; break;
-                case "Ford": number = 2; break;
-                case "Renault": number = 3; break;
+                case "Opel":
+                    number = 1;
+                    break;
+                case "Ford":
+                    number = 2;
+                    break;
+                case "Renault":
+                    number = 3;
+                    break;
             }
             Assert.That(number, Is.EqualTo(1));
         }
 
-        public class Auto
+        [Test]
+        public void SwitchCaseWithoutBreakTest()
         {
-            public string Name { get; set; }
+            int number = 0;
+            string switchArg = "arg";
+            switch (switchArg)
+            {
+                case "first":
+                    number = 1;
+                    break;
+                case "arg":
+                    number = 2;
+                    break;
+                case "third":
+                    number = 3;
+                    break;
+            }
+            Assert.That(number, Is.EqualTo(2));
         }
     }
 }

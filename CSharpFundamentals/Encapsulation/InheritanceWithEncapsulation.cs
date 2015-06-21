@@ -21,22 +21,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Encapsulation
 {
-    class Base
+    internal class Base
     {
-        public int PublicProperty { get; set; }
-        protected int protectedField;
         private int privateField;
+        protected int protectedField;
+        public int PublicProperty { get; set; }
     }
 
-    class Derived : Base
+    internal class Derived : Base
     {
         public void Usage()
         {
@@ -45,13 +40,12 @@ namespace Encapsulation
         }
     }
 
-    class Usage
+    internal class Usage
     {
-        public void method()
+        public void Method()
         {
             var derived = new Derived();
             derived.PublicProperty = 1;
-            
         }
     }
 }

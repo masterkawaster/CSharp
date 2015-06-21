@@ -21,12 +21,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using NUnit.Framework;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Using
 {
@@ -37,28 +34,27 @@ namespace Using
         public void givenTryCatch_whenExecutingMethod_valueIsAssignedAfterFinallyBlock()
         {
             var dispose = new DisposeExample();
-            var valueAfterFinally = 3;
+            int valueAfterFinally = 3;
             Assert.AreEqual(valueAfterFinally, dispose.whenThrowingInTry_thenCodeAfterFinallyIsReachable());
-        }
-
-        [Test]
-        public void givenTryCatch_whenExecutingMethod_valueIsAssignedInFinallyBlock_oneCase()
-        {
-            var dispose = new DisposeExample();
-            var objectState = 1; 
-            Assert.Catch<Exception>(() => dispose.whenThrowInCatch_thenCodeAfterFinallyIsUnreachable());
-
-            Assert.AreEqual(objectState, dispose.ObjectState);
         }
 
         [Test]
         public void givenTryCatch_whenExecutingMethod_valueIsAssignedInFinallyBlock_SecondCase()
         {
             var dispose = new DisposeExample();
-            var objectState = 1;
+            int objectState = 1;
             dispose.whenReturningInCatch_thenCodeAfterFinallyIsUnreachable();
             Assert.AreEqual(objectState, dispose.ObjectState);
         }
-    
+
+        [Test]
+        public void givenTryCatch_whenExecutingMethod_valueIsAssignedInFinallyBlock_oneCase()
+        {
+            var dispose = new DisposeExample();
+            int objectState = 1;
+            Assert.Catch<Exception>(() => dispose.whenThrowInCatch_thenCodeAfterFinallyIsUnreachable());
+
+            Assert.AreEqual(objectState, dispose.ObjectState);
+        }
     }
 }

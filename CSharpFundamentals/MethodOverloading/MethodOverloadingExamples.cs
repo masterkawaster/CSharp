@@ -21,14 +21,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using NUnit.Framework;
+
 using System;
+using NUnit.Framework;
 
 namespace CSharpFundamentals.MethodOverloading
 {
     [TestFixture]
     public class MethodOverloadingExamples
     {
+        public void checkOil(int miles)
+        {
+        }
+
+        public void checkOil(int miles, DateTime lastCheck)
+        {
+        }
+
+        public void pourOil(int liters = 5)
+        {
+        }
+
         [Test]
         public void OverloadingExample()
         {
@@ -39,10 +52,5 @@ namespace CSharpFundamentals.MethodOverloading
             pourOil();
             pourOil(6);
         }
-
-        public void checkOil(int miles) { }
-        public void checkOil(int miles, DateTime lastCheck) { }
-
-        public void pourOil(int liters = 5) { }
     }
 }

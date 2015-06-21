@@ -21,12 +21,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using NUnit.Framework;
+
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Foreach
 {
@@ -36,15 +34,15 @@ namespace Foreach
         [Test]
         public void givenList_whenForeachAndAddItemToList_throwException()
         {
-            var list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            var count = 0;
+            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            int count = 0;
 
             Assert.Throws<InvalidOperationException>(
                 () =>
                 {
-                    foreach (var item in list)
+                    foreach (int item in list)
                         list.Add(0);
-                });            
+                });
         }
     }
 }

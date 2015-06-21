@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.UsingAndDispose
@@ -28,29 +29,9 @@ namespace CSharpFundamentals.UsingAndDispose
     [TestFixture]
     public class DisposableTest
     {
-        [Test]
-        public void CheckDisposableInvocationList_withPolymorphism()
-        {
-            using (DisposableObject obj = new DisposableObjectTest())
-            {
-
-            }
-            Assert.That(DisposableObjectTest.commandsExecution, Is.EqualTo("Dispose"));
-        }
-
-        [Test]
-        public void CheckDisposableInvocationList_withoutPolymorphism()
-        {
-            using (DisposableObject obj = new DisposableObjectTest())
-            {
-
-            }
-            Assert.That(DisposableObjectTest.commandsExecution, Is.EqualTo("Dispose"));
-        }
-
         /// <summary>
-        /// Uncomment this test and run it separatelly as this invokes garbage collector process
-        /// To see results check output window
+        ///     Uncomment this test and run it separatelly as this invokes garbage collector process
+        ///     To see results check output window
         /// </summary>
         //[Test]
         //public void CheckDisposableInvocationList_CallingGarbageCollectorToCleanUp()
@@ -60,12 +41,28 @@ namespace CSharpFundamentals.UsingAndDispose
         //    GC.WaitForFullGCComplete();
         //    //see output for logs from destructors
         //}
-
-
         [TearDown]
         public void AfterEveryTest()
         {
             DisposableObjectTest.commandsExecution = string.Empty;
+        }
+
+        [Test]
+        public void CheckDisposableInvocationList_withPolymorphism()
+        {
+            using (DisposableObject obj = new DisposableObjectTest())
+            {
+            }
+            Assert.That(DisposableObjectTest.commandsExecution, Is.EqualTo("Dispose"));
+        }
+
+        [Test]
+        public void CheckDisposableInvocationList_withoutPolymorphism()
+        {
+            using (DisposableObject obj = new DisposableObjectTest())
+            {
+            }
+            Assert.That(DisposableObjectTest.commandsExecution, Is.EqualTo("Dispose"));
         }
     }
 }

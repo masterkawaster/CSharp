@@ -21,12 +21,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Override
 {
@@ -38,10 +34,9 @@ namespace Override
         {
             Assert.AreEqual(120, (new Mustang()).GetSpeed());
             Assert.AreEqual(50, (new Ford()).GetSpeed());
-            Assert.AreEqual(120, (new Mustang() as Car).GetSpeed());
+            Assert.AreEqual(120, new Mustang().GetSpeed());
 
             Assert.AreEqual(30, (new Ford() as Car).GetSpeed());
-
         }
     }
 }

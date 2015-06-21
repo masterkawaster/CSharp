@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.ReferenceAndValueTypes
@@ -28,22 +29,6 @@ namespace CSharpFundamentals.ReferenceAndValueTypes
     [TestFixture]
     public class ReferenceAndValueTypesTest
     {
-        [Test]
-        public void methodInvocationTest()
-        {
-            var initializationValue = 5;
-            int valueType = initializationValue;
-
-            invokeMethodValueTypeArg(valueType);
-
-            Assert.That(valueType, Is.EqualTo(initializationValue));
-
-            var referenceType = new ReferenceType { RefVal = initializationValue };
-            invokeCommandReferenceArg(referenceType);
-
-            Assert.That(referenceType, Is.Not.EqualTo(initializationValue));
-        }
-
         private void invokeCommandReferenceArg(ReferenceType referenceType)
         {
             referenceType.RefVal = 10;
@@ -57,6 +42,22 @@ namespace CSharpFundamentals.ReferenceAndValueTypes
         public class ReferenceType
         {
             public int RefVal { get; set; }
+        }
+
+        [Test]
+        public void methodInvocationTest()
+        {
+            int initializationValue = 5;
+            int valueType = initializationValue;
+
+            invokeMethodValueTypeArg(valueType);
+
+            Assert.That(valueType, Is.EqualTo(initializationValue));
+
+            var referenceType = new ReferenceType {RefVal = initializationValue};
+            invokeCommandReferenceArg(referenceType);
+
+            Assert.That(referenceType, Is.Not.EqualTo(initializationValue));
         }
     }
 }

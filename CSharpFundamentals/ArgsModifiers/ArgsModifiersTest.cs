@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.ArgsModifiers
@@ -28,32 +29,25 @@ namespace CSharpFundamentals.ArgsModifiers
     [TestFixture]
     public class ArgsModifiersTest
     {
-        [Test]
-        public void NamedArguments()
-        {
-            namedArgumentsMethod(arg2: 1, arg1: 5);
-        }
-
         private void namedArgumentsMethod(int arg1, int arg2)
         {
-
-        }
-
-        [Test]
-        public void RefArguments()
-        {
-            int copyByValue = 1;
-            int copyByReference = 5;
-            refArgumentsMethod(copyByValue, ref copyByReference); //you need to have named variable with ref keyword
-
-            Assert.That(copyByValue, Is.EqualTo(1));
-            Assert.That(copyByReference, Is.EqualTo(10));
         }
 
         private void refArgumentsMethod(int arg1, ref int arg2)
         {
             arg1 = 11;
             arg2 = 10;
+        }
+
+        private void outArgumentsMethod(out int arg1)
+        {
+            arg1 = 10;
+        }
+
+        [Test]
+        public void NamedArguments()
+        {
+            namedArgumentsMethod(arg2: 1, arg1: 5);
         }
 
         [Test]
@@ -65,9 +59,15 @@ namespace CSharpFundamentals.ArgsModifiers
             Assert.That(outArg, Is.EqualTo(10));
         }
 
-        private void outArgumentsMethod(out int arg1)
+        [Test]
+        public void RefArguments()
         {
-            arg1 = 10;
+            int copyByValue = 1;
+            int copyByReference = 5;
+            refArgumentsMethod(copyByValue, ref copyByReference); //you need to have named variable with ref keyword
+
+            Assert.That(copyByValue, Is.EqualTo(1));
+            Assert.That(copyByReference, Is.EqualTo(10));
         }
     }
 }

@@ -21,11 +21,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Override
 {
@@ -34,7 +29,7 @@ namespace Override
         int GetSpeed();
     }
 
-    class Car : ICar
+    internal class Car : ICar
     {
         public virtual int GetSpeed()
         {
@@ -42,7 +37,7 @@ namespace Override
         }
     }
 
-    class Mustang : Car
+    internal class Mustang : Car
     {
         public override int GetSpeed()
         {
@@ -50,13 +45,11 @@ namespace Override
         }
     }
 
-    class Ford : Car
+    internal class Ford : Car
     {
         public int GetSpeed()
         {
             return 50;
         }
     }
-
-
 }

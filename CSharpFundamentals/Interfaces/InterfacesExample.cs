@@ -21,6 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using NUnit.Framework;
 
 namespace CSharpFundamentals.Interfaces
@@ -28,10 +29,26 @@ namespace CSharpFundamentals.Interfaces
     [TestFixture]
     public class InterfacesExample
     {
+        public class Animal : IRunable, IDangerous
+        {
+            public bool IsDangerous { get; set; }
+            public int MilesPerHour { get; set; }
+        }
+
+        private interface IDangerous
+        {
+            bool IsDangerous { get; set; }
+        }
+
+        private interface IRunable
+        {
+            int MilesPerHour { get; set; }
+        }
+
         [Test]
         public void InterfaceSegregationTest()
         {
-            var animal = new Animal() { MilesPerHour = 10, IsDangerous = true };
+            var animal = new Animal {MilesPerHour = 10, IsDangerous = true};
 
             IDangerous dangerous = animal;
             IRunable runable = animal;
@@ -39,24 +56,5 @@ namespace CSharpFundamentals.Interfaces
             Assert.That(runable.MilesPerHour, Is.EqualTo(10));
             Assert.That(dangerous.IsDangerous, Is.True);
         }
-
-        public class Animal : IRunable, IDangerous
-        {
-
-            public int MilesPerHour { get; set; }
-
-            public bool IsDangerous { get; set; }
-        }
-        interface IDangerous
-        {
-            bool IsDangerous { get; set; }
-        }
-
-        interface IRunable
-        {
-            int MilesPerHour { get; set; }
-        }
     }
-
-
 }

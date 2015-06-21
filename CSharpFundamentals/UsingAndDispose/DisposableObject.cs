@@ -21,7 +21,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
+
 using System;
+using System.Diagnostics;
 
 namespace CSharpFundamentals.UsingAndDispose
 {
@@ -30,13 +32,13 @@ namespace CSharpFundamentals.UsingAndDispose
         public virtual void Dispose()
         {
             //free manually unmanaged resources
-            System.Diagnostics.Trace.WriteLine("DisposeBase called");
+            Trace.WriteLine("DisposeBase called");
             GC.SuppressFinalize(this);
         }
 
         ~DisposableObject()
         {
-            System.Diagnostics.Trace.WriteLine("DestructorBase called when garbage collector is run - without using");
+            Trace.WriteLine("DestructorBase called when garbage collector is run - without using");
             Dispose();
         }
     }
@@ -47,15 +49,14 @@ namespace CSharpFundamentals.UsingAndDispose
 
         public override void Dispose()
         {
-            System.Diagnostics.Trace.WriteLine("Dispose called");
+            Trace.WriteLine("Dispose called");
             commandsExecution += "Dispose";
             GC.SuppressFinalize(this);
         }
 
         ~DisposableObjectTest()
         {
-            System.Diagnostics.Trace.WriteLine("Destructor called when garbage collector is run - without using");
+            Trace.WriteLine("Destructor called when garbage collector is run - without using");
         }
     }
-
 }
