@@ -28,6 +28,7 @@ using NUnit.Framework;
 namespace Encapsulation
 {
     [TestFixture]
+    [Category("Encapsulation")]
     public class EncapsulationTests
     {
         [Test]

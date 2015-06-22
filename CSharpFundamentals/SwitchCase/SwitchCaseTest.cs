@@ -27,9 +27,10 @@ using NUnit.Framework;
 namespace CSharpFundamentals.SwitchCase
 {
     [TestFixture]
+    [Category("SwitchCase")]
     public class SwitchCaseTest
     {
-        public class Auto
+        public class Car
         {
             public string Name { get; set; }
         }
@@ -38,7 +39,7 @@ namespace CSharpFundamentals.SwitchCase
         public void SwitchCaseWithObjects()
         {
             int number = 0;
-            var auto = new Auto {Name = "Opel"};
+            var auto = new Car { Name = "Opel" };
             switch (auto.Name)
             {
                 case "Opel":

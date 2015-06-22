@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.ReferenceAndValueTypes
 {
     [TestFixture]
+    [Category("ReferenceAndValueTypes")]
     public class ReferenceAndValueTypesTest
     {
         private void invokeCommandReferenceArg(ReferenceType referenceType)
@@ -54,7 +55,7 @@ namespace CSharpFundamentals.ReferenceAndValueTypes
 
             Assert.That(valueType, Is.EqualTo(initializationValue));
 
-            var referenceType = new ReferenceType {RefVal = initializationValue};
+            var referenceType = new ReferenceType { RefVal = initializationValue };
             invokeCommandReferenceArg(referenceType);
 
             Assert.That(referenceType, Is.Not.EqualTo(initializationValue));

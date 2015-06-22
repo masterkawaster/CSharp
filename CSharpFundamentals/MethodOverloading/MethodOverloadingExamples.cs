@@ -22,12 +22,13 @@
 // THE SOFTWARE.
 // ************************************************************************************************
 
-using System;
 using NUnit.Framework;
+using System;
 
 namespace CSharpFundamentals.MethodOverloading
 {
     [TestFixture]
+    [Category("MethodOverloading")]
     public class MethodOverloadingExamples
     {
         public void checkOil(int miles)

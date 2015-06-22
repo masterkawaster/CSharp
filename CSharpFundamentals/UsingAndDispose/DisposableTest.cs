@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.UsingAndDispose
 {
     [TestFixture]
+    [Category("UsingAndDispose")]
     public class DisposableTest
     {
         /// <summary>

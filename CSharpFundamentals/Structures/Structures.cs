@@ -3,6 +3,7 @@
 namespace CSharpFundamentals.Structures
 {
     [TestFixture]
+    [Category("Structures")]
     public class Structures
     {
         public void UseStructure(EasyStructure structure)

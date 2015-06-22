@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 // ************************************************************************************************
 
-namespace Override
+namespace CSharpFundamentals.Override
 {
     public interface ICar
     {

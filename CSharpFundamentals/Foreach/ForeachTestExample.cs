@@ -22,19 +22,20 @@
 // THE SOFTWARE.
 // ************************************************************************************************
 
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 
 namespace Foreach
 {
     [TestFixture]
+    [Category("Foreach")]
     public class ForeachTestExample
     {
         [Test]
         public void givenList_whenForeachAndAddItemToList_throwException()
         {
-            var list = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            var list = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
             int count = 0;
 
             Assert.Throws<InvalidOperationException>(

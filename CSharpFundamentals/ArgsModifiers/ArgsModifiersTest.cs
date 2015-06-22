@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.ArgsModifiers
 {
     [TestFixture]
+    [Category("ArgsModifiers")]
     public class ArgsModifiersTest
     {
         private void namedArgumentsMethod(int arg1, int arg2)
@@ -63,7 +64,7 @@ namespace CSharpFundamentals.ArgsModifiers
         public void RefArguments()
         {
             int copyByValue = 1;
-            int copyByReference = 5;
+            int copyByReference = 5;//must be initialised first
             refArgumentsMethod(copyByValue, ref copyByReference); //you need to have named variable with ref keyword
 
             Assert.That(copyByValue, Is.EqualTo(1));

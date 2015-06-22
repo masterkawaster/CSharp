@@ -24,9 +24,10 @@
 
 using NUnit.Framework;
 
-namespace Override
+namespace CSharpFundamentals.Override
 {
     [TestFixture]
+    [Category("Override")]
     public class OverrideExamples
     {
         [Test]

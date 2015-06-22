@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.Operators
 {
     [TestFixture]
+    [Category("Operators")]
     public class OperatorsExample
     {
         [Test]
@@ -54,7 +55,7 @@ namespace CSharpFundamentals.Operators
         [Test]
         public void moduloTest()
         {
-            Assert.That(23%5, Is.EqualTo(3));
+            Assert.That(23 % 5, Is.EqualTo(3));
         }
 
         [Test]

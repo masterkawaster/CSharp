@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.Interfaces
 {
     [TestFixture]
+    [Category("Interfaces")]
     public class InterfacesExample
     {
         public class Animal : IRunable, IDangerous
@@ -48,7 +49,7 @@ namespace CSharpFundamentals.Interfaces
         [Test]
         public void InterfaceSegregationTest()
         {
-            var animal = new Animal {MilesPerHour = 10, IsDangerous = true};
+            var animal = new Animal { MilesPerHour = 10, IsDangerous = true };
 
             IDangerous dangerous = animal;
             IRunable runable = animal;

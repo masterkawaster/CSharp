@@ -27,6 +27,7 @@ using NUnit.Framework;
 namespace CSharpFundamentals.NullableTypes
 {
     [TestFixture]
+    [Category("NullableTypes")]
     public class NullableTypesTest
     {
         [Test]
@@ -39,7 +40,7 @@ namespace CSharpFundamentals.NullableTypes
             int notNullable = 5;
 
             nullable = notNullable;
-            notNullable = (int) nullable; //Exception if nullable = null
+            notNullable = (int)nullable; //Exception if nullable = null
             notNullable = nullable.Value;
         }
     }
