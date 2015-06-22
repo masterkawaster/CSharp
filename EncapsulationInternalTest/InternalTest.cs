@@ -21,23 +21,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 // ************************************************************************************************
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EncapsulationInternalExample
 {
-    internal class InternalTest
+    internal class InternalTestClass
     {
         public void IsVisible()
         {
-            
+
         }
     }
 
-    public class PublicTest
+    public class PublicTestClass
     {
         public void IsVisible()
         {

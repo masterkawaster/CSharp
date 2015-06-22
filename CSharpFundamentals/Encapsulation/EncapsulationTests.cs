@@ -34,7 +34,7 @@ namespace Encapsulation
         [Test]
         public void TestVisibility()
         {
-            var publicClass = new PublicTest();
+            var publicClass = new PublicTestClass();
             //var internalClass = new EncapsulationInternalTest.;
         }
     }

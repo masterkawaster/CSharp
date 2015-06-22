@@ -30,14 +30,13 @@ namespace CSharpFundamentals.ArgsModifiers
     [Category("ArgsModifiers")]
     public class ArgsModifiersTest
     {
+        private int _validInt1 = 1;
+        private int _validInt2 = 5;
+
         private void namedArgumentsMethod(int arg1, int arg2)
         {
-        }
-
-        private void refArgumentsMethod(int arg1, ref int arg2)
-        {
-            arg1 = 11;
-            arg2 = 10;
+            Assert.That(arg1, Is.EqualTo(_validInt1));
+            Assert.That(arg2, Is.EqualTo(_validInt2));
         }
 
         private void outArgumentsMethod(out int arg1)
@@ -45,14 +44,20 @@ namespace CSharpFundamentals.ArgsModifiers
             arg1 = 10;
         }
 
-        [Test]
-        public void NamedArguments()
+        private void refArgumentsMethod(string arg1, ref string arg2)
         {
-            namedArgumentsMethod(arg2: 1, arg1: 5);
+            arg1 = "new value 1";
+            arg2 = "new value 2";
         }
 
         [Test]
-        public void OutArguments()
+        public void GivenMethodWithArgs_WhenPassingArguments_thenUseNamedArgs()
+        {
+            namedArgumentsMethod(arg2: _validInt2, arg1: _validInt1);
+        }
+
+        [Test]
+        public void GivenUninitialisedVariable_WhenPassingAsOutArg_ThenExpectInitialised()
         {
             int outArg;
             outArgumentsMethod(out outArg);
@@ -61,14 +66,14 @@ namespace CSharpFundamentals.ArgsModifiers
         }
 
         [Test]
-        public void RefArguments()
+        public void GivenInitialisedVariables_WhenPassingByRef_ThenExpectModifiedReference()
         {
-            int copyByValue = 1;
-            int copyByReference = 5;//must be initialised first
+            var copyByValue = "old string 1";
+            var copyByReference = "old string 2";//must be initialised first
             refArgumentsMethod(copyByValue, ref copyByReference); //you need to have named variable with ref keyword
 
-            Assert.That(copyByValue, Is.EqualTo(1));
-            Assert.That(copyByReference, Is.EqualTo(10));
+            Assert.That(copyByValue, Is.EqualTo("old string 1"));
+            Assert.That(copyByReference, Is.EqualTo("new value 2"));
         }
     }
 }
